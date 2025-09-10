@@ -1,0 +1,33 @@
+Jméno projektu: scooter-assistant
+
+🛴 Projekt: Scooter Assistant – poznámky
+
+Cíl: Udělat jednoduchou React aplikaci, která mi ráno řekne, jestli má smysl jet do práce na koloběžce, nebo radši zvolit jiný způsob dopravy. Bude to jen pro mě – znám trasu, koloběžku i čas odjezdu.
+
+Co aplikace bude dělat:
+
+• 🌦 Stáhne aktuální počasí pro mou polohu (Brno) z nějakého free API (např. OpenWeatherMap)
+• ⏰ Zohlední čas odjezdu – např. předpověď na 7:30 ráno
+• 💨 Vyhodnotí podmínky – vítr, déšť, teplota, případně sníh
+• ✅ Rozhodne, jestli je vhodné jet na koloběžce
+• 👕 Doporučí oblečení – např. „vezmi si bundu“, „pláštěnku“, „pozor na vítr“
+• ⚠️ Upozorní na rizika – např. „silný vítr“, „déšť během jízdy“
+
+
+Co bude fixní:
+
+- Poloha: Brno (souřadnice natvrdo)
+- Koloběžka: znám její limity (např. max vítr, min teplota)
+- Trasa: neměnná, cca 12 km 
+- Čas odjezdu: kolem 7:30
+
+Co možná přidám:
+
+- Ikony počasí (slunce, déšť…)
+- Obrázky s popiskem na následujících týden
+- Vyznačení, kde se v tom týdnu aktuálně nacházím
+- Zobrazení trasy (jen vizuálně)
+- Nastavení času odjezdu (do budoucna)
+
+Popis projektu: 
+Scooter Assistant je jednoduchá React aplikace, která pomáhá uživateli rozhodnout, zda je vhodné jet do práce na elektrické koloběžce. Na základě aktuálního počasí získaného z veřejného API poskytuje doporučení ohledně jízdy, oblečení a bezpečnostních opatření. Projekt je navržen pro konkrétní trasu a podmínky jednoho uživatele, což umožňuje cílenou analýzu a personalizované rady. Slouží jako závěrečný test v React kurzu.
