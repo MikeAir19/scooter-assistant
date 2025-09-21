@@ -28,6 +28,17 @@ Co možná přidám:
 - Vyznačení, kde se v tom týdnu aktuálně nacházím
 - Zobrazení trasy (jen vizuálně)
 - Nastavení času odjezdu (do budoucna)
+- Odhadovaná spotřeba energie
 
 Popis projektu: 
 Scooter Assistant je jednoduchá React aplikace, která pomáhá uživateli rozhodnout, zda je vhodné jet do práce na elektrické koloběžce. Na základě aktuálního počasí získaného z veřejného API poskytuje doporučení ohledně jízdy, oblečení a bezpečnostních opatření. Projekt je navržen pro konkrétní trasu a podmínky jednoho uživatele, což umožňuje cílenou analýzu a personalizované rady. Slouží jako závěrečný test v React kurzu.
+
+Základní logika: 
+
+Stupně/oblečení: 
++22 - tričko,kraťasy
+18 - 22 - lehká mikina, kraťasy 
+15 - 18 - mikina, džíny 
+10 - 15 - lehká bunda, džíny
+5 - 10 - bunda, džíny
+0 - 5 - bunda, termoprádlo, džíny

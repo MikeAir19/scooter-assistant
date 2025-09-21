@@ -1,0 +1,20 @@
+.header-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+/* Výchozí styl pro všechny obrázky */
+.header-logo img {
+  height: 150px;
+  transition: height 0.3s ease;
+}
+
+/* 📱 Mobilní zobrazení */
+@media (max-width: 600px) {
+  .header-logo img {
+    height: 40px;
+  }
+}

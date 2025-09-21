@@ -1,0 +1,63 @@
+.widget {
+  background: linear-gradient(145deg, #ffffff, #f0f8ff);
+  border: 1px solid #0077cc;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 119, 204, 0.1);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 280px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.widget:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 119, 204, 0.15);
+}
+
+.widget-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+.widget.expanded {
+  width: 90vw;
+  max-width: 420px;
+  padding: 2.5rem;
+  background: rgba(240, 248, 255, 0.95);
+  box-shadow: 0 16px 48px rgba(0, 119, 204, 0.2);
+  border-radius: 20px;
+  transform: scale(1.05);
+  transition: all 0.4s ease;
+  box-sizing: border-box;
+}
+
+.extra-info {
+  margin-top: 1rem;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+  .widget.expanded {
+    padding: 1.5rem;
+    font-size: 0.95rem;
+  }
+}
