@@ -6,7 +6,7 @@
   padding: 1.5rem;
   width: 100%;
   max-width: 280px;
-  text-align: center;
+  text-align: left;
   font-family: 'Poppins', sans-serif;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
@@ -18,31 +18,42 @@
   box-shadow: 0 12px 32px rgba(0, 119, 204, 0.15);
 }
 
-.widget-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  backdrop-filter: blur(12px);
-  background: rgba(255, 255, 255, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-  animation: fadeIn 0.3s ease;
+.widget-large {
+  max-width: 420px;
+  padding: 2rem;
+  border-radius: 20px;
+  cursor: default;
 }
 
-.widget.expanded {
-  width: 90vw;
-  max-width: 420px;
-  padding: 2.5rem;
-  background: rgba(240, 248, 255, 0.95);
-  box-shadow: 0 16px 48px rgba(0, 119, 204, 0.2);
-  border-radius: 20px;
-  transform: scale(1.05);
-  transition: all 0.4s ease;
-  box-sizing: border-box;
+.widget-day {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  color: #0077cc;
+}
+
+.widget-date {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.widget-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.widget-label {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.widget-value {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #222;
 }
 
 .extra-info {
@@ -55,9 +66,24 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 480px) {
-  .widget.expanded {
-    padding: 1.5rem;
-    font-size: 0.95rem;
-  }
+/* 🌤️ Víkendový styl */
+.widget.weekend {
+  background: linear-gradient(145deg, #fefefe, #eaf6ff);
+  border: 1px solid #66aaff;
+  box-shadow: 0 8px 24px rgba(102, 170, 255, 0.15);
+  position: relative;
+}
+
+.widget.weekend::after {
+  content: "Víkend";
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background-color: #0077cc;
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(0, 119, 204, 0.2);
 }

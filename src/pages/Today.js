@@ -28,9 +28,7 @@ const Today = () => {
   if (error) return <div className="today-message error">{error}</div>
   if (!data?.current || !data?.hourly || !data?.daily) return null
 
-  const now = new Date()// testovací čas
-
-
+  const now = new Date()
   const hour = now.getHours()
   const dayName = now.toLocaleDateString("cs-CZ", { weekday: "long" })
   const dateString = now.toLocaleDateString("cs-CZ", { day: "numeric", month: "numeric", year: "numeric" })
@@ -38,7 +36,7 @@ const Today = () => {
 
   const getTimeLabel = () => {
     if (hour >= 5 && hour < 9) return "ráno"
-    if (hour >= 9 && hour < 12) return "dooledne"
+    if (hour >= 9 && hour < 12) return "dopoledne"
     if (hour >= 12 && hour < 18) return "odpoledne"
     return "večer"
   }
@@ -56,13 +54,10 @@ const Today = () => {
   const morningIndex = getIndex(`${todayDate}T08:00`)
   const afternoonIndex = getIndex(`${todayDate}T17:00`)
 
-  //testovací hodnoty zima/déšť:
-
   const tempMorning = hourly.temperature_2m[morningIndex]
   const tempAfternoon = hourly.temperature_2m[afternoonIndex]
   const rainMorning = hourly.rain[morningIndex]
   const rainAfternoon = hourly.rain[afternoonIndex]
-
 
   const sunrise = daily.sunrise[0].split("T")[1]
   const sunset = daily.sunset[0].split("T")[1]
@@ -101,39 +96,33 @@ const Today = () => {
       <div className="weather-details">
         <div className="status-row">
           <div className="status-box">
-            <p className="status-label">Status:</p>
+            <p className="status-label">Status</p>
             <p className="status-value">{icon}</p>
           </div>
           <div className="temp-box">
-            <p className="temp-label">Teplota:</p>
-            <p className="temp-value">{current.temperature_2m} °C
-              🌡️
-            </p>
+            <p className="temp-label">Teplota</p>
+            <p className="temp-value">{current.temperature_2m} °C</p>
           </div>
         </div>
 
-
-
-
-
         <div className="time-block">
-          <h3>Ráno (8:00)</h3>
-          <p>🌡️ Teplota: {tempMorning} °C</p>
-          <p>🌧️ Déšť: {rainMorning} mm</p>
-          <p>🌄 Východ slunce: {sunrise}</p>
+          <h3>Ráno (08:00)</h3>
+          <div className="block-row"><span>Teplota:</span><span>{tempMorning} °C</span></div>
+          <div className="block-row"><span>Déšť:</span><span>{rainMorning} mm</span></div>
+          <div className="block-row"><span>Východ slunce:</span><span>{sunrise}</span></div>
         </div>
 
         <div className="time-block">
           <h3>Odpoledne (17:00)</h3>
-          <p>🌡️ Teplota: {tempAfternoon} °C</p>
-          <p>🌧️ Déšť: {rainAfternoon} mm</p>
-          <p>🌆 Západ slunce: {sunset}</p>
+          <div className="block-row"><span>Teplota:</span><span>{tempAfternoon} °C</span></div>
+          <div className="block-row"><span>Déšť:</span><span>{rainAfternoon} mm</span></div>
+          <div className="block-row"><span>Západ slunce:</span><span>{sunset}</span></div>
         </div>
 
         <div className="extra-info">
-          <p>☁️ Oblačnost: {current.cloud_cover} %</p>
-          <p>❄️ Sněžení: {current.snowfall} mm</p>
-          <p>💧 Vlhkost: {current.relative_humidity_2m} %</p>
+          <div className="block-row"><span>Oblačnost:</span><span>{current.cloud_cover} %</span></div>
+          <div className="block-row"><span>Sněžení:</span><span>{current.snowfall} mm</span></div>
+          <div className="block-row"><span>Vlhkost:</span><span>{current.relative_humidity_2m} %</span></div>
         </div>
       </div>
     </div>

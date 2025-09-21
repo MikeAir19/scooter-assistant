@@ -5,8 +5,8 @@ import SA_title from '../img/SA_title.png'
 const Header = () => {
   return (
     <div className="header-logo">
-      <img src={SA_logo} alt="" />
-      <img src={SA_title} alt="" />
+      <img className="img-logo" src={SA_logo} alt="" />
+      <img className="img-title" src={SA_title} alt="" />
     </div>
   )
 }

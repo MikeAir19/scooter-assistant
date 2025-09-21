@@ -7,7 +7,7 @@
   max-width: 420px;
   margin: 2rem auto;
   font-family: 'Poppins', sans-serif;
-  text-align: center;
+  text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -23,9 +23,10 @@
   background-color: #f0f8ff;
   border-radius: 12px;
   padding: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.8rem;
   box-shadow: 0 4px 12px rgba(0, 119, 204, 0.05);
   line-height: 1.6;
+  text-align: center;
 }
 
 .weather-details {
@@ -34,7 +35,7 @@
   gap: 0.6rem 1rem;
   font-size: 1.05rem;
   color: #333;
-  margin-top: 1rem;
+  margin-block-start: 0.2rem;
 }
 
 .status-row {
@@ -43,7 +44,6 @@
   justify-content: center;
   align-items: stretch;
   gap: 4px;
-  margin-bottom: 0.8rem;
 }
 
 .status-box,
@@ -51,13 +51,13 @@
   background-color: #e6f2ff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 119, 204, 0.05);
-  padding: 0.4rem 0.6rem;
+  padding: 0.6rem 0.8rem;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 56px;
+  height: 64px;
 }
 
 .status-label,
@@ -71,15 +71,59 @@
 
 .status-value,
 .temp-value {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 600;
-  color: #0077cc;
+  color: #222;
   margin: 0;
   line-height: 1.2;
 }
 
-.weather-details p:hover {
-  background-color: #d4e9ff;
+.time-block {
+  grid-column: span 2;
+  background-color: #f8fbff;
+  border: 1px solid #cce6ff;
+  border-radius: 12px;
+  padding: rem;
+  margin-block-start: 0.2rem;
+  box-shadow: 0 4px 12px rgba(0, 119, 204, 0.05);
+}
+
+.time-block h3 {
+  margin-bottom: 0.3rem;
+  font-size: 1.2rem;
+  color: #0077cc;
+  font-weight: 600;
+}
+
+.block-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  padding: px 0;
+  border-bottom: 1px solid #eef4ff;
+}
+
+.block-row:last-child {
+  border-bottom: none;
+}
+
+.block-row span:first-child {
+  color: #555;
+}
+
+.block-row span:last-child {
+  font-weight: 500;
+  color: #222;
+}
+
+.extra-info {
+  grid-column: span 2;
+  margin-block-start: 0.2rem;
+  background-color: #f8fbff;
+  border: 1px solid #cce6ff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 119, 204, 0.05);
 }
 
 .today-message {
@@ -105,25 +149,4 @@
 .today-message.error {
   color: #cc0000;
   border-color: #cc0000;
-}
-
-.time-block {
-  grid-column: span 2;
-  background-color: #f8fbff;
-  border: 1px solid #cce6ff;
-  border-radius: 12px;
-  padding: 1rem;
-  margin-top: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 119, 204, 0.05);
-}
-
-.time-block h3 {
-  margin-bottom: 0.6rem;
-  font-size: 1.2rem;
-  color: #0077cc;
-}
-
-.extra-info {
-  grid-column: span 2;
-  margin-top: 1rem;
 }

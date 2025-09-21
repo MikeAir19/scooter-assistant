@@ -6,15 +6,25 @@
   padding: 1rem 0;
 }
 
-/* Výchozí styl pro všechny obrázky */
-.header-logo img {
+/* Oba obrázky mají stejnou výšku */
+.header-logo .img-logo {
+  height: 200px;
+  width: auto;
+  transition: height 0.3s ease;
+}
+.header-logo .img-title {
   height: 150px;
+  width: auto;
   transition: height 0.3s ease;
 }
 
-/* 📱 Mobilní zobrazení */
+/* 📱 Mobilní zobrazení – stejná výška pro logo i title */
 @media (max-width: 600px) {
-  .header-logo img {
+  .header-logo .img-logo {
+    height: 60px;
+  }
+
+  .header-logo .img-title {
     height: 40px;
   }
 }

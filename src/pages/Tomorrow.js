@@ -64,27 +64,32 @@ const Tomorrow = () => {
 
   return (
     <div className="tomorrow">
-      <h2>{dayName}, {dateString} {icon}</h2>
+      <h2>{dayName}, {dateString}</h2>
+
+      <div className="status-box">
+        <p className="status-label">Status</p>
+        <p className="status-value">{icon}</p>
+      </div>
 
       <div className="weather-details">
         <div className="time-block">
-          <h3>🕗 Ráno (8:00)</h3>
-          <p>🌡️ Teplota: {tempMorning} °C</p>
-          <p>🌧️ Déšť: {rainMorning} mm</p>
-          <p>☁️ Oblačnost: {cloudMorning} %</p>
-          <p>❄️ Sněžení: {snowMorning} mm</p>
-          <p>💧 Vlhkost: {humidityMorning} %</p>
-          <p>🌄 Východ slunce: {sunrise}</p>
+          <h3>Ráno (08:00)</h3>
+          <div className="block-row"><span>Teplota:</span><span>{tempMorning} °C</span></div>
+          <div className="block-row"><span>Déšť:</span><span>{rainMorning} mm</span></div>
+          <div className="block-row"><span>Oblačnost:</span><span>{cloudMorning} %</span></div>
+          <div className="block-row"><span>Sněžení:</span><span>{snowMorning} mm</span></div>
+          <div className="block-row"><span>Vlhkost:</span><span>{humidityMorning} %</span></div>
+          <div className="block-row"><span>Východ slunce:</span><span>{sunrise}</span></div>
         </div>
 
         <div className="time-block">
-          <h3>🕔 Odpoledne (17:00)</h3>
-          <p>🌡️ Teplota: {tempAfternoon} °C</p>
-          <p>🌧️ Déšť: {rainAfternoon} mm</p>
-          <p>☁️ Oblačnost: {cloudAfternoon} %</p>
-          <p>❄️ Sněžení: {snowAfternoon} mm</p>
-          <p>💧 Vlhkost: {humidityAfternoon} %</p>
-          <p>🌆 Západ slunce: {sunset}</p>
+          <h3>Odpoledne (17:00)</h3>
+          <div className="block-row"><span>Teplota:</span><span>{tempAfternoon} °C</span></div>
+          <div className="block-row"><span>Déšť:</span><span>{rainAfternoon} mm</span></div>
+          <div className="block-row"><span>Oblačnost:</span><span>{cloudAfternoon} %</span></div>
+          <div className="block-row"><span>Sněžení:</span><span>{snowAfternoon} mm</span></div>
+          <div className="block-row"><span>Vlhkost:</span><span>{humidityAfternoon} %</span></div>
+          <div className="block-row"><span>Západ slunce:</span><span>{sunset}</span></div>
         </div>
       </div>
     </div>

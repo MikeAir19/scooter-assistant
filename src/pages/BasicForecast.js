@@ -7,7 +7,7 @@ const BasicForecast = () => {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
-  const [activeIndex, setActiveIndex] = useState(null)
+  const [activeIndex, setActiveIndex] = useState(0)
 
   useEffect(() => {
     const fetchForecast = async () => {
@@ -50,12 +50,67 @@ const BasicForecast = () => {
     }
   }
 
+  const isWeekend = (dateStr) => {
+    const day = new Date(dateStr).getDay()
+    return day === 0 || day === 6
+  }
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev === 0 ? data.daily.time.length - 1 : prev - 1))
+  }
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev === data.daily.time.length - 1 ? 0 : prev + 1))
+  }
+
   if (loading) return <div className="forecast-message">Načítám předpověď…</div>
   if (error) return <div className="forecast-message error">{error}</div>
   if (!data || !data.daily?.time) return <div className="forecast-message error">Data nejsou dostupná.</div>
 
+  const activeDate = data.daily.time[activeIndex]
+  const { morning, afternoon, rainMorning, rainAfternoon } = getHourlyValues(activeDate)
+
+  let icon = "✅"
+  if ((rainMorning ?? 0) > 0 || (rainAfternoon ?? 0) > 0) {
+    icon = "🌧️"
+  } else if (
+    morning !== null &&
+    afternoon !== null &&
+    (morning < 10 || afternoon < 10)
+  ) {
+    icon = "🥶"
+  }
+
   return (
     <div className="forecast-wrapper">
+      <div className="active-widget">
+        <Widget
+          key={activeDate}
+          date={activeDate}
+          max={data.daily.temperature_2m_max[activeIndex]}
+          min={data.daily.temperature_2m_min[activeIndex]}
+          morning={morning}
+          afternoon={afternoon}
+          icon={icon}
+          variant="large"
+          weekend={isWeekend(activeDate)}
+        />
+      </div>
+
+      <div className="slider-controls">
+        <button onClick={handlePrev} className="slider-arrow">‹</button>
+        <div className="slider-dots">
+          {data.daily.time.map((_, index) => (
+            <span
+              key={index}
+              className={`dot ${index === activeIndex ? "active" : ""}`}
+              onClick={() => setActiveIndex(index)}
+            />
+          ))}
+        </div>
+        <button onClick={handleNext} className="slider-arrow">›</button>
+      </div>
+
       <section className="forecast-grid">
         {data.daily.time.map((date, index) => {
           const { morning, afternoon, rainMorning, rainAfternoon } = getHourlyValues(date)
@@ -80,9 +135,8 @@ const BasicForecast = () => {
               morning={morning}
               afternoon={afternoon}
               icon={icon}
-              expanded={activeIndex === index}
+              weekend={isWeekend(date)}
               onClick={() => setActiveIndex(index)}
-              onClose={() => setActiveIndex(null)}
             />
           )
         })}
