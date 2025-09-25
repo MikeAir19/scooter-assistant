@@ -83,7 +83,9 @@ const BasicForecast = () => {
 
   return (
     <div className="forecast-wrapper">
-      <div className="active-widget">
+      <div className="widget-slider-row">
+        <button onClick={handlePrev} className="slider-arrow">‹</button>
+
         <Widget
           key={activeDate}
           date={activeDate}
@@ -95,24 +97,24 @@ const BasicForecast = () => {
           variant="large"
           weekend={isWeekend(activeDate)}
         />
+
+        <button onClick={handleNext} className="slider-arrow">›</button>
       </div>
 
-      <div className="slider-controls">
-        <button onClick={handlePrev} className="slider-arrow">‹</button>
-        <div className="slider-dots">
-          {data.daily.time.map((_, index) => (
-            <span
-              key={index}
-              className={`dot ${index === activeIndex ? "active" : ""}`}
-              onClick={() => setActiveIndex(index)}
-            />
-          ))}
-        </div>
-        <button onClick={handleNext} className="slider-arrow">›</button>
+      <div className="slider-dots">
+        {data.daily.time.map((_, index) => (
+          <span
+            key={index}
+            className={`dot ${index === activeIndex ? "active" : ""}`}
+            onClick={() => setActiveIndex(index)}
+          />
+        ))}
       </div>
 
       <section className="forecast-grid">
         {data.daily.time.map((date, index) => {
+          if (index === activeIndex) return null // skip active widget
+
           const { morning, afternoon, rainMorning, rainAfternoon } = getHourlyValues(date)
 
           let icon = "✅"

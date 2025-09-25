@@ -11,29 +11,33 @@ const Navbar = () => {
   const getSectionTitle = () => {
     if (location.pathname === "/") return "Dnes"
     if (location.pathname === "/tomorrow") return "Zítra"
-    if (location.pathname === "/basicforecast") return "Týdenní předpověď"
+    if (location.pathname === "/shorttermforecast") return "Týdenní předpověď"
     if (location.pathname === "/longtermforecast") return "Dlouhodobá předpověď"
+    if (location.pathname === "/infopage") return "Informace"
     return ""
   }
 
   return (
-    <header>
-      <div className="mobile-header" onClick={toggleMenu}>
-        <span>{getSectionTitle()}</span>
-        <div className={`menu-icon ${menuOpen ? "open" : ""}`}>
-          <span></span>
-          <span></span>
-          <span></span>
+    <div className="navbar">
+      <header>
+        <div className="mobile-header" onClick={toggleMenu}>
+          <span>{getSectionTitle()}</span>
+          <div className={`menu-icon ${menuOpen ? "open" : ""}`}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
-      </div>
 
-      <nav className={menuOpen ? "open" : ""}>
-        <NavLink to="/" onClick={() => setMenuOpen(false)}>Dnes</NavLink>
-        <NavLink to="/tomorrow" onClick={() => setMenuOpen(false)}>Zítra</NavLink>
-        <NavLink to="/basicforecast" onClick={() => setMenuOpen(false)}>Týdenní předpověď</NavLink>
-        <NavLink to="/longtermforecast" onClick={() => setMenuOpen(false)}>Dlouhodobá předpověď</NavLink>
-      </nav>
-    </header>
+        <nav className={menuOpen ? "open" : ""}>
+          <NavLink to="/" onClick={() => setMenuOpen(false)}>Dnes</NavLink>
+          <NavLink to="/tomorrow" onClick={() => setMenuOpen(false)}>Zítra</NavLink>
+          <NavLink to="/shorttermforecast" onClick={() => setMenuOpen(false)}>Týdenní předpověď</NavLink>
+          <NavLink to="/longtermforecast" onClick={() => setMenuOpen(false)}>Dlouhodobá předpověď</NavLink>
+          <NavLink to="/infopage" onClick={() => setMenuOpen(false)}>Informace</NavLink>
+        </nav>
+      </header>
+    </div>
   )
 }
 

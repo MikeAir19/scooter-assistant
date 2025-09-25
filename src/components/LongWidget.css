@@ -1,0 +1,115 @@
+.longterm {
+  margin: 2rem auto;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.longterm .long-widget {
+  background: #ffffff;
+  border: 1px solid #e0e6ed;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+  padding: 0.8rem 1rem;
+  width: 100%;
+  max-width: 150px;
+  font-family: 'SF Pro Text', 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  text-align: left;
+  margin: 0.4rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.longterm .long-widget.featured {
+  min-width: 220px;
+  max-width: 240px;
+  font-size: 0.85rem;
+  padding: 1rem 1.2rem;
+}
+
+.longterm .long-widget:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.longterm .long-widget.weekend {
+  background: linear-gradient(145deg, #fefefe, #eaf6ff);
+  border-color: #cce6ff;
+}
+
+.longterm .weekend-badge {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  background-color: #007aff;
+  color: white;
+  font-size: 0.6rem;
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(0, 122, 255, 0.2);
+  z-index: 2;
+}
+
+.longterm .long-widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.longterm .long-widget-day {
+  font-weight: 600;
+  color: #007aff;
+  font-size: 0.85rem;
+  text-transform: lowercase;
+}
+
+.longterm .long-widget-date {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.longterm .long-widget-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  color: #333;
+}
+
+.longterm .long-widget-label {
+  flex: 1;
+  font-weight: 500;
+  color: #444;
+}
+
+.longterm .long-widget-icon {
+  flex: 0 0 2.8rem;
+  font-size: 1.2rem;
+  text-align: right;
+  white-space: nowrap;
+  display: inline-block;
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+@media (max-width: 600px) {
+  .longterm {
+    margin: 1rem auto;
+    padding: 1.2rem;
+    max-width: 100%;
+    display: block;
+  }
+
+  .longterm .long-widget.featured {
+    min-width: 180px;
+    max-width: 180px;
+    padding: 0.8rem 1rem;
+    font-size: 0.8rem;
+  }
+}

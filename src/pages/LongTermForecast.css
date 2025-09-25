@@ -1,52 +1,148 @@
+/* ─────────────────────────── */
+/* OBECNÉ NASTAVENÍ STRÁNKY */
+/* ─────────────────────────── */
+
 .longterm {
   background: linear-gradient(145deg, #ffffff, #f0f8ff);
   border: 1px solid #0077cc;
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0, 119, 204, 0.1);
   padding: 2rem;
-  max-width: 640px;
   margin: 2rem auto;
+  width: 100%;
+  max-width: 480px;
   font-family: 'Poppins', sans-serif;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
 }
 
-.longterm:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 119, 204, 0.15);
-}
-
-.longterm-title {
+.longterm .longterm-title {
   font-size: 1.6rem;
   font-weight: 600;
   color: #0077cc;
-  margin-bottom: 1rem;
-  line-height: 1.4;
+  margin-bottom: 2rem;
+  letter-spacing: -0.3px;
+  text-align: center;
 }
 
-.longterm-description {
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: #333;
-  background-color: #f8fbff;
-  border-radius: 12px;
-  padding: 1.2rem;
-  box-shadow: 0 4px 12px rgba(0, 119, 204, 0.05);
-  line-height: 1.6;
+.longterm .longterm-slider-block {
+  margin-bottom: 2rem;
 }
+
+.longterm .longterm-slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.longterm .longterm-slider {
+  flex: 0 1 auto;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.longterm .slider-arrow {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #007aff;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.longterm .slider-arrow:hover {
+  transform: scale(1.1);
+}
+
+.longterm .slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.longterm .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.longterm .dot.active {
+  background-color: #007aff;
+}
+
+.longterm .slider-range {
+  font-size: 0.85rem;
+  color: #007aff;
+  margin-top: 0.4rem;
+  letter-spacing: -0.2px;
+  text-align: center;
+}
+
+.longterm .longterm-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+/* ──────────────────────────────────────────── */
+/* STYL PRO ERROR HLÁŠKU (včetně fallbacku) */
+/* ──────────────────────────────────────────── */
+
+.longterm-message,
+.longterm .longterm-loading,
+.longterm .longterm-error {
+  background: linear-gradient(145deg, #ffffff, #f0f8ff);
+  border: 1px solid #0077cc;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 119, 204, 0.1);
+  padding: 2rem;
+  max-width: 480px;
+  margin: 2rem auto;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  font-size: 1.25rem;
+  color: #0077cc;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.longterm-message.error,
+.longterm .longterm-error {
+  color: #cc0000;
+  border-color: #cc0000;
+}
+
+/* ────────────────────────────────── */
+/* NASTAVENÍ PRO MOBILNÍ ZAŘÍZENÍ */
+/* ────────────────────────────────── */
 
 @media (max-width: 600px) {
   .longterm {
-    padding: 1.5rem;
+    padding: 1.2rem;
+    margin: 1rem auto;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .longterm-message,
+  .longterm .longterm-loading,
+  .longterm .longterm-error {
+    padding: 1.2rem;
     margin: 1rem;
-  }
-
-  .longterm-title {
-    font-size: 1.3rem;
-  }
-
-  .longterm-description {
-    font-size: 1rem;
-    padding: 1rem;
+    font-size: 1.1rem;
   }
 }

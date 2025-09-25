@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
-header {
+.navbar header {
   background-color: #ffffff;
   border-bottom: 2px solid #0077cc;
   padding: 1rem 0;
@@ -10,8 +10,7 @@ header {
   z-index: 10;
 }
 
-/* Desktop navigace */
-nav {
+.navbar nav {
   display: flex;
   justify-content: center;
   gap: 2rem;
@@ -19,39 +18,43 @@ nav {
   transition: all 0.3s ease;
 }
 
-nav a {
+.navbar nav a {
   text-decoration: none;
   color: #0077cc;
   font-weight: 600;
   font-size: 1.1rem;
-  transition: color 0.3s ease, transform 0.2s ease;
+  transition: color 0.3s ease, transform 0.2s ease, background-color 0.2s ease;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   font-family: 'Poppins', sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
-nav a:hover {
+.navbar nav a:hover {
   color: #005fa3;
   transform: scale(1.05);
   background-color: #e6f2ff;
 }
 
-nav a.active {
+.navbar nav a:active {
+  background-color: #0077cc;
+  color: #ffffff;
+}
+
+.navbar nav a.active {
   color: #ffffff;
   background-color: #0077cc;
   border-radius: 4px;
 }
 
-/* Desktop: skryj mobilní nadpis */
 @media (min-width: 601px) {
-  .mobile-header {
+  .navbar .mobile-header {
     display: none;
   }
 }
 
-/* 📱 Mobilní zobrazení */
 @media (max-width: 600px) {
-  .mobile-header {
+  .navbar .mobile-header {
     font-size: 1.3rem;
     font-weight: 600;
     color: #0077cc;
@@ -67,13 +70,18 @@ nav a.active {
     max-width: 600px;
     position: relative;
     z-index: 30;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  .mobile-header span {
+  .navbar .mobile-header:active {
+    background-color: #e6f2ff;
+  }
+
+  .navbar .mobile-header span {
     flex-grow: 1;
   }
 
-  .menu-icon {
+  .navbar .menu-icon {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -82,7 +90,7 @@ nav a.active {
     transition: transform 0.3s ease;
   }
 
-  .menu-icon span {
+  .navbar .menu-icon span {
     display: block;
     width: 24px;
     height: 3px;
@@ -92,19 +100,19 @@ nav a.active {
     transform-origin: center;
   }
 
-  .menu-icon.open span:nth-child(1) {
+  .navbar .menu-icon.open span:nth-child(1) {
     transform: rotate(45deg) translateY(8px);
   }
 
-  .menu-icon.open span:nth-child(2) {
+  .navbar .menu-icon.open span:nth-child(2) {
     opacity: 0;
   }
 
-  .menu-icon.open span:nth-child(3) {
+  .navbar .menu-icon.open span:nth-child(3) {
     transform: rotate(-45deg) translateY(-8px);
   }
 
-  nav {
+  .navbar nav {
     position: absolute;
     top: calc(100% + 8px);
     left: 0;
@@ -126,13 +134,13 @@ nav a.active {
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
-  nav.open {
+  .navbar nav.open {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
   }
 
-  nav a {
+  .navbar nav a {
     font-size: 1.2rem;
     padding: 0.4rem 0.8rem;
     width: 100%;
@@ -141,4 +149,8 @@ nav a.active {
     box-sizing: border-box;
   }
 
+  .navbar nav a:active {
+    background-color: #0077cc;
+    color: #ffffff;
+  }
 }

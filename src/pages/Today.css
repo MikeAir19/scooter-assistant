@@ -1,130 +1,179 @@
+/* ───────────────────────────── */
+/* OBECNÉ NASTAVENÍ STRÁNKY */
+/* ───────────────────────────── */
+
 .today {
   background: linear-gradient(145deg, #ffffff, #f0f8ff);
   border: 1px solid #0077cc;
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0, 119, 204, 0.1);
   padding: 2rem;
-  max-width: 420px;
   margin: 2rem auto;
+  width: 100%;
+  max-width: 480px;
   font-family: 'Poppins', sans-serif;
-  text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  box-sizing: border-box;
 }
 
-.today:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 119, 204, 0.15);
-}
-
-.greeting-line {
-  font-size: 1.2rem;
+.today .greeting-line {
+  font-size: 1.25rem;
   font-weight: 500;
   color: #0077cc;
   background-color: #f0f8ff;
-  border-radius: 12px;
+  border: 1px solid #cce6ff;
+  border-radius: 16px;
   padding: 1rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
   box-shadow: 0 4px 12px rgba(0, 119, 204, 0.05);
   line-height: 1.6;
   text-align: center;
 }
 
-.weather-details {
+.today .weather-details {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.6rem 1rem;
-  font-size: 1.05rem;
+  gap: 1rem;
+  font-size: 1rem;
   color: #333;
-  margin-block-start: 0.2rem;
+  margin-top: 0.4rem;
 }
 
-.status-row {
+.today .status-row {
   grid-column: span 2;
   display: flex;
   justify-content: center;
   align-items: stretch;
-  gap: 4px;
+  gap: 1rem;
 }
 
-.status-box,
-.temp-box {
-  background-color: #e6f2ff;
-  border-radius: 8px;
+.today .status-box,
+.today .temp-box {
+  background-color: #f0f8ff;
+  border: 1px solid #cce6ff;
+  border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 119, 204, 0.05);
-  padding: 0.6rem 0.8rem;
+  padding: 1rem;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 64px;
+  min-height: 72px;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-.status-label,
-.temp-label {
-  font-size: 0.95rem;
+.today .status-label,
+.today .temp-label {
+  font-size: 1rem;
   font-weight: 500;
   color: #0077cc;
+  padding: 0.2rem;
   margin: 0;
   line-height: 1.2;
 }
 
-.status-value,
-.temp-value {
-  font-size: 1.4rem;
+.today .status-value,
+.today .temp-value {
+  font-size: 1.5rem;
   font-weight: 600;
   color: #222;
   margin: 0;
+  padding-top: 3px;
   line-height: 1.2;
+  display: flex;
+  gap: 0.4rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
-.time-block {
+.today .main-status {
+  background-color: #f0f8ff;
+  border: 1px solid #cce6ff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 119, 204, 0.05);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.today .main-status .status-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #0077cc;
+  margin-bottom: 0.1rem;
+}
+
+.today .main-status .status-icon {
+  padding-top: 3px;
+  font-size: 1.0rem;
+  line-height: 0;
+  display: inline-block;
+  transform: scale(2);
+  transform-origin: center;
+}
+
+.today .time-block {
   grid-column: span 2;
   background-color: #f8fbff;
   border: 1px solid #cce6ff;
-  border-radius: 12px;
-  padding: rem;
-  margin-block-start: 0.2rem;
+  border-radius: 16px;
+  padding: 1.2rem;
+  margin-top: 0.6rem;
   box-shadow: 0 4px 12px rgba(0, 119, 204, 0.05);
 }
 
-.time-block h3 {
-  margin-bottom: 0.3rem;
-  font-size: 1.2rem;
+.today .time-block h3 {
+  margin-bottom: 0.6rem;
+  font-size: 1.25rem;
   color: #0077cc;
   font-weight: 600;
 }
 
-.block-row {
+.today .block-row {
   display: flex;
   justify-content: space-between;
-  font-size: 0.95rem;
-  padding: px 0;
-  border-bottom: 1px solid #eef4ff;
+  font-size: 1rem;
+  padding: 0.6rem 0;
 }
 
-.block-row:last-child {
+.today .block-row:last-child {
   border-bottom: none;
 }
 
-.block-row span:first-child {
+.today .block-row span:first-child {
   color: #555;
 }
 
-.block-row span:last-child {
+.today .block-row span:last-child {
   font-weight: 500;
   color: #222;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
-.extra-info {
+.today .extra-info {
   grid-column: span 2;
-  margin-block-start: 0.2rem;
+  margin-top: 0.6rem;
   background-color: #f8fbff;
   border: 1px solid #cce6ff;
-  border-radius: 12px;
-  padding: 1rem;
+  border-radius: 16px;
+  padding: 1.2rem;
   box-shadow: 0 4px 12px rgba(0, 119, 204, 0.05);
 }
+
+/* ───────────────── */
+/* ERROR HLÁŠKA */
+/* ───────────────── */
 
 .today-message {
   background: linear-gradient(145deg, #ffffff, #f0f8ff);
@@ -132,21 +181,34 @@
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0, 119, 204, 0.1);
   padding: 2rem;
-  max-width: 420px;
+  max-width: 480px;
   margin: 2rem auto;
   font-family: 'Poppins', sans-serif;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   color: #0077cc;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.today-message:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 119, 204, 0.15);
 }
 
 .today-message.error {
   color: #cc0000;
   border-color: #cc0000;
+}
+
+/* ─────────────────── */
+/* MOBILNÍ VERZE */
+/* ─────────────────── */
+
+@media (max-width: 600px) {
+  .today {
+    padding: 1.2rem;
+    margin: 1rem auto;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .today-message {
+    padding: 1.2rem;
+    margin: 1rem;
+  }
 }

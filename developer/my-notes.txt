@@ -37,8 +37,8 @@ Základní logika:
 
 Stupně/oblečení: 
 +22 - tričko,kraťasy
-18 - 22 - lehká mikina, kraťasy 
-15 - 18 - mikina, džíny 
-10 - 15 - lehká bunda, džíny
-5 - 10 - bunda, džíny
-0 - 5 - bunda, termoprádlo, džíny
+18 - 21 - lehká mikina, kraťasy 
+15 - 17 - mikina, džíny 
+10 - 14 - lehká bunda, džíny
+5 - 9 - bunda, džíny
+0 - 4 - bunda, termoprádlo, džíny

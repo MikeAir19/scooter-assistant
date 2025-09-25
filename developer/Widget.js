@@ -12,23 +12,23 @@ const Widget = ({ date, max, min, morning, afternoon, icon, variant, weekend, on
       <p className="widget-date">{date}</p>
 
       <div className="widget-section">
-        <div className="widget-label">Maximální teplota</div>
-        <div className="widget-value">{max} °C</div>
+        <div className="widget-label">Ráno (08:00)</div>
+        <div className="widget-value">{morning !== null ? `${morning} °C` : "N/A"}</div>
       </div>
       <div className="widget-section">
-        <div className="widget-label">Minimální teplota</div>
-        <div className="widget-value">{min} °C</div>
+        <div className="widget-label">Odpoledne (17:00)</div>
+        <div className="widget-value">{afternoon !== null ? `${afternoon} °C` : "N/A"}</div>
       </div>
 
       {isLarge && (
         <div className="extra-info">
           <div className="widget-section">
-            <div className="widget-label">Ráno (08:00)</div>
-            <div className="widget-value">{morning !== null ? `${morning} °C` : "N/A"}</div>
+            <div className="widget-label">Maximální teplota</div>
+            <div className="widget-value">{max} °C</div>
           </div>
           <div className="widget-section">
-            <div className="widget-label">Odpoledne (17:00)</div>
-            <div className="widget-value">{afternoon !== null ? `${afternoon} °C` : "N/A"}</div>
+            <div className="widget-label">Minimální teplota</div>
+        <div className="widget-value">{min} °C</div>
           </div>
           <div className="widget-section">
             <div className="widget-label">Pocitová teplota</div>

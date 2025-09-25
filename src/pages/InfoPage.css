@@ -1,0 +1,56 @@
+/* ───────────────────────────── */
+/* OBECNÉ NASTAVENÍ STRÁNKY */
+/* ───────────────────────────── */
+
+.info-page {
+  background: linear-gradient(145deg, #ffffff, #f0f8ff);
+  border: 1px solid #0077cc;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 119, 204, 0.1);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 480px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  color: #0077cc;
+  box-sizing: border-box;
+}
+
+/* ─────────────────── */
+/* OBSAHOVÉ PRVKY */
+/* ─────────────────── */
+
+.info-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: -0.3px;
+}
+
+.info-subtext {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #444;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ───────────────── */
+/* MOBILNÍ VERZE */
+/* ───────────────── */
+
+@media (max-width: 600px) {
+  .info-page {
+    padding: 1.2rem;
+    margin: 1rem;
+    max-width: 100%;
+  }
+
+  .info-title {
+    font-size: 1.4rem;
+  }
+
+  .info-subtext {
+    font-size: 1.05rem;
+  }
+}

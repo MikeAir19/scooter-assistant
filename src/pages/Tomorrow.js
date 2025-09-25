@@ -1,95 +1,73 @@
-import { useEffect, useState } from "react"
-import axios from "axios"
+import { useContext } from "react"
+import { WeatherContext } from "../context/WeatherProvider"
 import "./Tomorrow.css"
 
 const Tomorrow = () => {
-  const [data, setData] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
-
-  useEffect(() => {
-    const fetchTomorrow = async () => {
-      try {
-        const url =
-          "https://api.open-meteo.com/v1/forecast?latitude=49.1952&longitude=16.608&hourly=temperature_2m,rain,cloud_cover,snowfall,relative_humidity_2m&daily=sunrise,sunset&timezone=Europe%2FPrague&forecast_days=2"
-        const response = await axios.get(url)
-        setData(response.data)
-      } catch (err) {
-        setError("Nepodařilo se načíst počasí pro zítřek.")
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchTomorrow()
-  }, [])
+  const { forecast, loading } = useContext(WeatherContext)
 
   if (loading) return <div className="tomorrow">Načítám zítřejší počasí…</div>
-  if (error) return <div className="tomorrow-message error">{error}</div>
-  if (!data?.hourly || !data?.daily || !data.daily.time?.[1]) return null
+  if (!forecast || forecast.length < 2) return <div className="tomorrow-message error">Nepodařilo se načíst počasí pro zítřek.</div>
 
-  const tomorrowDate = new Date(data.daily.time[1])
+  const tomorrow = forecast[1]
+  const tomorrowDate = new Date(tomorrow.date)
   const dayName = tomorrowDate.toLocaleDateString("cs-CZ", { weekday: "long" })
   const dateString = tomorrowDate.toLocaleDateString("cs-CZ", { day: "numeric", month: "numeric", year: "numeric" })
 
-  const hourly = data.hourly
-  const daily = data.daily
+  const getHourData = (hour) => tomorrow.hourly.find(h => h.hour === hour)
 
-  const getIndex = (targetTime) => hourly.time.indexOf(targetTime)
+  const morning = getHourData(8)
+  const afternoon = getHourData(17)
 
-  const isoDate = daily.time[1]
-  const morningIndex = getIndex(`${isoDate}T08:00`)
-  const afternoonIndex = getIndex(`${isoDate}T17:00`)
+  const rainMorning = typeof morning?.rain === "number" ? morning.rain.toFixed(1) : "?"
+  const rainAfternoon = typeof afternoon?.rain === "number" ? afternoon.rain.toFixed(1) : "?"
 
-  const tempMorning = hourly.temperature_2m[morningIndex]
-  const tempAfternoon = hourly.temperature_2m[afternoonIndex]
-  const rainMorning = hourly.rain[morningIndex]
-  const rainAfternoon = hourly.rain[afternoonIndex]
-  const cloudMorning = hourly.cloud_cover[morningIndex]
-  const cloudAfternoon = hourly.cloud_cover[afternoonIndex]
-  const snowMorning = hourly.snowfall[morningIndex]
-  const snowAfternoon = hourly.snowfall[afternoonIndex]
-  const humidityMorning = hourly.relative_humidity_2m[morningIndex]
-  const humidityAfternoon = hourly.relative_humidity_2m[afternoonIndex]
+  const iconMorning =
+    parseFloat(rainMorning) > 0 ? "🌧️"
+    : morning?.temp < 10 ? "🥶"
+    : "✅"
 
-  const sunrise = daily.sunrise[1]?.split("T")[1] || "N/A"
-  const sunset = daily.sunset[1]?.split("T")[1] || "N/A"
+  const iconAfternoon =
+    parseFloat(rainAfternoon) > 0 ? "🌧️"
+    : afternoon?.temp < 10 ? "🥶"
+    : "✅"
 
-  let icon = "✅"
-  if (rainMorning > 0 || rainAfternoon > 0) {
-    icon = "🌧️"
-  } else if (tempMorning < 10 || tempAfternoon < 10) {
-    icon = "🥶"
-  }
+  const icon =
+    iconMorning === "🌧️" || iconAfternoon === "🌧️" ? "🌧️"
+    : iconMorning === "🥶" || iconAfternoon === "🥶" ? "🥶"
+    : "✅"
 
   return (
     <div className="tomorrow">
       <h2>{dayName}, {dateString}</h2>
 
       <div className="status-box">
-        <p className="status-label">Status</p>
+        <p className="status-label">Zítra</p>
         <p className="status-value">{icon}</p>
       </div>
 
       <div className="weather-details">
         <div className="time-block">
           <h3>Ráno (08:00)</h3>
-          <div className="block-row"><span>Teplota:</span><span>{tempMorning} °C</span></div>
-          <div className="block-row"><span>Déšť:</span><span>{rainMorning} mm</span></div>
-          <div className="block-row"><span>Oblačnost:</span><span>{cloudMorning} %</span></div>
-          <div className="block-row"><span>Sněžení:</span><span>{snowMorning} mm</span></div>
-          <div className="block-row"><span>Vlhkost:</span><span>{humidityMorning} %</span></div>
-          <div className="block-row"><span>Východ slunce:</span><span>{sunrise}</span></div>
+          <div className="block-row"><span>Status:</span><span>{iconMorning}</span></div>
+          <div className="block-row"><span>Teplota:</span><span>{morning.temp} °C</span></div>
+          <div className="block-row"><span>Srážky:</span><span>{rainMorning} mm</span></div>
+          <div className="block-row"><span>Sněžení:</span><span>{morning.snowfall} mm</span></div>
+          <div className="block-row"><span>Oblačnost:</span><span>{morning.cloudCover} %</span></div>
+          <div className="block-row"><span>Vlhkost:</span><span>{morning.humidity} %</span></div>
+          <div className="block-row"><span>Vítr:</span><span>{morning.wind} km/h</span></div>
+          <div className="block-row"><span>Východ slunce:</span><span>{tomorrow.sunrise}</span></div>
         </div>
 
         <div className="time-block">
           <h3>Odpoledne (17:00)</h3>
-          <div className="block-row"><span>Teplota:</span><span>{tempAfternoon} °C</span></div>
-          <div className="block-row"><span>Déšť:</span><span>{rainAfternoon} mm</span></div>
-          <div className="block-row"><span>Oblačnost:</span><span>{cloudAfternoon} %</span></div>
-          <div className="block-row"><span>Sněžení:</span><span>{snowAfternoon} mm</span></div>
-          <div className="block-row"><span>Vlhkost:</span><span>{humidityAfternoon} %</span></div>
-          <div className="block-row"><span>Západ slunce:</span><span>{sunset}</span></div>
+          <div className="block-row"><span>Status:</span><span>{iconAfternoon}</span></div>
+          <div className="block-row"><span>Teplota:</span><span>{afternoon.temp} °C</span></div>
+          <div className="block-row"><span>Srážky:</span><span>{rainAfternoon} mm</span></div>
+          <div className="block-row"><span>Sněžení:</span><span>{afternoon.snowfall} mm</span></div>
+          <div className="block-row"><span>Oblačnost:</span><span>{afternoon.cloudCover} %</span></div>
+          <div className="block-row"><span>Vlhkost:</span><span>{afternoon.humidity} %</span></div>
+          <div className="block-row"><span>Vítr:</span><span>{afternoon.wind} km/h</span></div>
+          <div className="block-row"><span>Západ slunce:</span><span>{tomorrow.sunset}</span></div>
         </div>
       </div>
     </div>

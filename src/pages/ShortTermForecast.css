@@ -1,0 +1,261 @@
+/* ──────────────────────────── */
+/* OBECNÉ NASTAVENÍ STRÁNKY */
+/* ──────────────────────────── */
+
+.shortterm {
+  background: linear-gradient(145deg, #ffffff, #f0f8ff);
+  border: 1px solid #0077cc;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 119, 204, 0.1);
+  padding: 2rem;
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 480px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.shortterm-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #0077cc;
+  margin-bottom: 2rem;
+}
+
+.shortterm-slider-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shortterm-slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.shortterm-slider {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ──────────────────────────────────── */
+/* ŠIPKY A TEČKY — DESKTOP I MOBILU */
+/* ──────────────────────────────────── */
+
+.slider-arrow {
+  background: none;
+  border: none;
+  color: #0077cc;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.18s ease, color 0.18s ease;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 2rem;
+  width: 44px;
+  height: 44px;
+}
+
+.slider-arrow:hover {
+  transform: scale(1.08);
+}
+
+.slider-arrow.desktop {
+  font-size: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: none;
+}
+
+.slider-arrow.mobile {
+  font-size: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: none;
+  display: none;
+}
+
+/* Posun šipek na desktopu */
+@media screen and (min-width: 601px) {
+  .slider-arrow.desktop {
+    margin-inline: 2rem;
+  }
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  padding: 0;
+  list-style: none;
+}
+
+.slider-dots.desktop-only {
+  display: flex;
+}
+
+.slider-dots.mobile-only {
+  display: none;
+  align-items: center;
+}
+
+.slider-dots,
+.slider-dots.desktop-only,
+.slider-dots.mobile-only {
+  gap: 0.5rem;
+}
+
+.dot,
+.slider-dots .dot,
+.slider-dots.desktop-only .dot,
+.slider-dots.mobile-only .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  transition: transform 120ms ease, background-color 180ms ease, box-shadow 180ms ease;
+  display: inline-block;
+  flex: 0 0 auto;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dot:active,
+.slider-dots .dot:active {
+  transform: scale(0.95);
+}
+
+.slider-dots .dot:hover,
+.slider-dots .dot:focus,
+.dot:hover,
+.dot:focus {
+  transform: scale(1.08);
+}
+
+.dot.active,
+.slider-dots .dot.active {
+  background-color: #0077cc;
+  box-shadow: 0 0 0 6px rgba(0, 119, 204, 0.08);
+  transform: scale(1.08);
+  outline: none;
+}
+
+/* ──────────────── */
+/* ERROR HLÁŠKA */
+/* ──────────────── */
+
+.shortterm-message {
+  background: linear-gradient(145deg, #ffffff, #f0f8ff);
+  border: 1px solid #0077cc;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 119, 204, 0.1);
+  padding: 2rem;
+  max-width: 480px;
+  margin: 2rem auto;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  font-size: 1.25rem;
+  color: #0077cc;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.shortterm-message.error {
+  color: #cc0000;
+  border-color: #cc0000;
+}
+
+/* ───────────────── */
+/* MOBILNÍ VERZE */
+/* ───────────────── */
+
+@media screen and (max-width: 600px) {
+  .shortterm {
+    padding: 1.2rem;
+    margin: 1rem auto;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .shortterm-slider-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .slider-arrow.desktop,
+  .slider-dots.desktop-only {
+    display: none;
+  }
+
+  .slider-arrow.mobile {
+    display: flex;
+  }
+
+  .slider-dots.mobile-only {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slider-dots.mobile-only .dot {
+    width: 12px;
+    height: 12px;
+    background-color: #ccc;
+    border: none;
+    box-shadow: none;
+  }
+
+  .slider-dots.mobile-only .dot.active {
+    background-color: #0077cc;
+    box-shadow: 0 0 0 6px rgba(0, 119, 204, 0.08);
+    transform: scale(1.08);
+  }
+
+  .shortterm-controls.mobile-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 360px;
+    margin-top: 0.6rem;
+    z-index: 5;
+    pointer-events: auto;
+    padding: 0.4rem 0.6rem;
+    background: rgba(255,255,255,0.02);
+    border-radius: 12px;
+  }
+
+  .shortterm-message {
+    padding: 1.2rem;
+    margin: 1rem;
+  }
+}
+
+/* ──────────────────── */
+/* ACCESSIBILITY */
+/* ──────────────────── */
+
+.slider-arrow:focus,
+.dot:focus {
+  outline: 3px solid rgba(0, 119, 204, 0.14);
+  outline-offset: 2px;
+}
