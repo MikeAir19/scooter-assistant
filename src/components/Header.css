@@ -1,3 +1,7 @@
+/* ───────────────────────────── */
+/* OBECNÉ NASTAVENÍ HLAVIČKY */
+/* ───────────────────────────── */
+
 .header-logo {
   display: flex;
   justify-content: center;
@@ -6,19 +10,26 @@
   padding: 1rem 0;
 }
 
-/* Oba obrázky mají stejnou výšku */
+/* ───────────────────────────── */
+/* VELIKOSTI LOGA A NADPISU */
+/* ───────────────────────────── */
+
 .header-logo .img-logo {
   height: 200px;
   width: auto;
   transition: height 0.3s ease;
 }
+
 .header-logo .img-title {
   height: 150px;
   width: auto;
   transition: height 0.3s ease;
 }
 
-/* 📱 Mobilní zobrazení – stejná výška pro logo i title */
+/* ───────────────────────────── */
+/* MOBILNÍ VERZE */
+/* ───────────────────────────── */
+
 @media (max-width: 600px) {
   .header-logo .img-logo {
     height: 60px;

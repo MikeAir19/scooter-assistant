@@ -9,9 +9,29 @@ const ShortTermForecast = () => {
 
   const visibleForecast = forecast?.slice(0, 7) || []
 
-  if (loading) return <div className="shortterm">Načítám předpověď…</div>
-  if (error) return <div className="shortterm-message error">Nepodařilo se načíst data z počasí.</div>
-  if (visibleForecast.length === 0) return <div className="shortterm-message error">Žádná data k zobrazení.</div>
+  if (loading) {
+    return (
+      <div className="shortterm-message">
+        Načítám předpověď…
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="shortterm-message error">
+        Nepodařilo se načíst data z počasí.
+      </div>
+    )
+  }
+
+  if (visibleForecast.length === 0) {
+    return (
+      <div className="shortterm-message error">
+        Žádná data k zobrazení.
+      </div>
+    )
+  }
 
   const handlePrev = () => {
     setActiveIndex((prev) => (prev === 0 ? visibleForecast.length - 1 : prev - 1))

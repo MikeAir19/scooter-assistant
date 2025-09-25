@@ -1,8 +1,7 @@
 import { useContext } from "react"
 import { WeatherContext } from "../context/WeatherProvider"
-// import ClothesWidget from "../components/ClothesWidget"
 import "./Today.css"
-
+import ClothesWidget from "../components/ClothesWidget"
 
 const Today = () => {
   const { forecast, loading } = useContext(WeatherContext)
@@ -109,7 +108,7 @@ const Today = () => {
           <div className="block-row"><span>Teplota:</span><span>{tempMorning} °C</span></div>
           <div className="block-row"><span>Srážky:</span><span>{rainMorning} mm</span></div>
           <div className="block-row"><span>Východ slunce:</span><span>{sunrise}</span></div>
-          <div className="block-row"><span>Východ slunce:</span><span></span></div>
+          <ClothesWidget hour={8} temp={morning?.temp} wind={morning?.wind} />
         </div>
 
         <div className="time-block">
@@ -118,6 +117,7 @@ const Today = () => {
           <div className="block-row"><span>Teplota:</span><span>{tempAfternoon} °C</span></div>
           <div className="block-row"><span>Srážky:</span><span>{rainAfternoon} mm</span></div>
           <div className="block-row"><span>Západ slunce:</span><span>{sunset}</span></div>
+          <ClothesWidget hour={17} temp={afternoon?.temp} wind={afternoon?.wind} />
         </div>
 
         <div className="extra-info">

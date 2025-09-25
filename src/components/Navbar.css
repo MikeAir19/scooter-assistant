@@ -1,4 +1,12 @@
+/* ───────────────────────────── */
+/* IMPORT FONTU */
+/* ───────────────────────────── */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+/* ───────────────────────────── */
+/* HLAVIČKA NAVIGACE */
+/* ───────────────────────────── */
 
 .navbar header {
   background-color: #ffffff;
@@ -9,6 +17,10 @@
   position: relative;
   z-index: 10;
 }
+
+/* ───────────────────────────── */
+/* ODKAZY V NAVIGACI */
+/* ───────────────────────────── */
 
 .navbar nav {
   display: flex;
@@ -47,11 +59,19 @@
   border-radius: 4px;
 }
 
+/* ───────────────────────────── */
+/* DESKTOP VERZE */
+/* ───────────────────────────── */
+
 @media (min-width: 601px) {
   .navbar .mobile-header {
     display: none;
   }
 }
+
+/* ───────────────────────────── */
+/* MOBILNÍ VERZE */
+/* ───────────────────────────── */
 
 @media (max-width: 600px) {
   .navbar .mobile-header {
@@ -80,6 +100,10 @@
   .navbar .mobile-header span {
     flex-grow: 1;
   }
+
+  /* ───────────────────────────── */
+  /* IKONA MENU (HAMBURGER) */
+  /* ───────────────────────────── */
 
   .navbar .menu-icon {
     display: flex;
@@ -111,6 +135,10 @@
   .navbar .menu-icon.open span:nth-child(3) {
     transform: rotate(-45deg) translateY(-8px);
   }
+
+  /* ───────────────────────────── */
+  /* ROZBALENÉ MENU NAVIGACE */
+  /* ───────────────────────────── */
 
   .navbar nav {
     position: absolute;

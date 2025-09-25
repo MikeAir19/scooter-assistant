@@ -1,4 +1,5 @@
 import "./ShortWidget.css"
+import ClothesWidget from "./ClothesWidget"
 
 const ShortWidget = ({ date, hourly, className = "" }) => {
   const jsDate = new Date(date)
@@ -31,6 +32,10 @@ const ShortWidget = ({ date, hourly, className = "" }) => {
   const rainChance = getRainChance(hourly)
 
   const widgetClass = `short-widget ${isWeekend ? "weekend" : ""} ${className}`.trim()
+
+  const midday = hourly?.find(h => h.hour === 12)
+  const tempMidday = midday?.temp
+  const windMidday = midday?.wind
 
   return (
     <div className={widgetClass} role="article" aria-label={`Předpověď pro ${dayName}`}>
@@ -65,6 +70,11 @@ const ShortWidget = ({ date, hourly, className = "" }) => {
       <div className="short-widget-row">
         <div className="short-widget-label">Srážky:</div>
         <div>{rainChance}%</div>
+      </div>
+
+      <div className="short-widget-row clothes-row">
+        <div className="short-widget-label"></div>
+        <ClothesWidget temp={tempMidday} wind={windMidday} />
       </div>
     </div>
   )

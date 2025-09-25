@@ -7,9 +7,29 @@ const LongTermForecast = () => {
   const { forecast, loading, error } = useContext(WeatherContext)
   const [activeIndex, setActiveIndex] = useState(0)
 
-  if (loading) return <div className="longterm">Načítám předpověď…</div>
-  if (error) return <div className="longterm-message error">Nepodařilo se načíst data z počasí.</div>
-  if (!forecast || forecast.length === 0) return <div className="longterm-message error">Žádná data k zobrazení.</div>
+  if (loading) {
+    return (
+      <div className="longterm-message">
+        Načítám předpověď…
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="longterm-message error">
+        Nepodařilo se načíst data z počasí.
+      </div>
+    )
+  }
+
+  if (!forecast || forecast.length === 0) {
+    return (
+      <div className="longterm-message error">
+        Žádná data k zobrazení.
+      </div>
+    )
+  }
 
   const handlePrev = () => {
     setActiveIndex((prev) => (prev === 0 ? forecast.length - 1 : prev - 1))

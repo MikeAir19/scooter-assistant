@@ -31,8 +31,53 @@
   font-size: 1.2rem;
   font-weight: 400;
   color: #444;
-  margin: 0 auto;
+  margin: 0 auto 1.2rem;
   line-height: 1.6;
+}
+
+/* ─────────────────── */
+/* BLOKY OTÁZEK */
+/* ─────────────────── */
+
+.info-block {
+  background-color: #f8fbff;
+  border: 1px solid #cce6ff;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 119, 204, 0.05);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: left;
+}
+
+.info-block:hover {
+  background-color: #eaf4ff;
+}
+
+.info-question {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #0077cc;
+  margin: 0;
+}
+
+.info-answer {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #333;
+  margin-top: 0.6rem;
+  line-height: 1.5;
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* ───────────────── */
+/* ANIMACE */
+/* ───────────────── */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ───────────────── */
@@ -52,5 +97,13 @@
 
   .info-subtext {
     font-size: 1.05rem;
+  }
+
+  .info-question {
+    font-size: 1rem;
+  }
+
+  .info-answer {
+    font-size: 0.95rem;
   }
 }

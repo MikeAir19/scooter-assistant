@@ -1,3 +1,7 @@
+/* ───────────────────────────── */
+/* OBECNÉ NASTAVENÍ STRÁNKY */
+/* ───────────────────────────── */
+
 .longterm {
   margin: 2rem auto;
   max-width: 800px;
@@ -6,6 +10,10 @@
   padding: 2rem;
   font-family: 'Poppins', sans-serif;
 }
+
+/* ───────────────────────────── */
+/* KOMPONENTA DNE V PŘEDPOVĚDI */
+/* ───────────────────────────── */
 
 .longterm .long-widget {
   background: #ffffff;
@@ -40,6 +48,10 @@
   border-color: #cce6ff;
 }
 
+/* ───────────────────────────── */
+/* OZNAČENÍ VÍKENDU */
+/* ───────────────────────────── */
+
 .longterm .weekend-badge {
   position: absolute;
   top: 6px;
@@ -53,6 +65,10 @@
   box-shadow: 0 2px 6px rgba(0, 122, 255, 0.2);
   z-index: 2;
 }
+
+/* ───────────────────────────── */
+/* HLAVIČKA DNE */
+/* ───────────────────────────── */
 
 .longterm .long-widget-header {
   display: flex;
@@ -72,6 +88,10 @@
   font-size: 0.75rem;
   color: #888;
 }
+
+/* ───────────────────────────── */
+/* ŘÁDKY S DATY */
+/* ───────────────────────────── */
 
 .longterm .long-widget-row {
   display: flex;
@@ -97,6 +117,10 @@
   transform: scale(1.2);
   transform-origin: center;
 }
+
+/* ───────────────────────────── */
+/* MOBILNÍ VERZE */
+/* ───────────────────────────── */
 
 @media (max-width: 600px) {
   .longterm {

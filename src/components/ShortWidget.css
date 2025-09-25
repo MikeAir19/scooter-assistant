@@ -1,3 +1,7 @@
+/* ───────────────────────────── */
+/* OBECNÉ NASTAVENÍ WIDGETU */
+/* ───────────────────────────── */
+
 .short-widget {
   background: #ffffff;
   border: 1px solid #e0e6ed;
@@ -36,6 +40,10 @@
   border-color: #cce6ff;
 }
 
+/* ───────────────────────────── */
+/* OZNAČENÍ VÍKENDU */
+/* ───────────────────────────── */
+
 .weekend-badge {
   position: absolute;
   top: 6px;
@@ -50,7 +58,10 @@
   z-index: 2;
 }
 
-/* ✅ Upravená hlavička widgetu — datum uprostřed, zvětšeno */
+/* ───────────────────────────── */
+/* HLAVIČKA DNE */
+/* ───────────────────────────── */
+
 .short-widget-header {
   display: flex;
   flex-direction: column;
@@ -63,17 +74,20 @@
 .short-widget-day {
   font-weight: 600;
   color: #007aff;
-  font-size: 1.6rem; /* zvětšeno 2× */
+  font-size: 1.6rem;
   text-transform: lowercase;
 }
 
 .short-widget-date {
-  font-size: 1.0rem; /* zvětšeno 2× */
+  font-size: 1.0rem;
   color: #888;
   text-align: center;
 }
 
-/* Obsah řádků */
+/* ───────────────────────────── */
+/* ŘÁDKY S DATY */
+/* ───────────────────────────── */
+
 .short-widget-row {
   display: flex;
   justify-content: space-between;
@@ -100,7 +114,10 @@
   padding: 0 6px;
 }
 
-/* Mobile tweaks */
+/* ───────────────────────────── */
+/* MOBILNÍ VERZE */
+/* ───────────────────────────── */
+
 @media (max-width: 600px) {
   .short-widget.featured {
     min-width: 300px;
