@@ -1,0 +1,146 @@
+/* ───────────────────────────── */
+/* OBECNÉ NASTAVENÍ BLOKU */
+/* ───────────────────────────── */
+
+.custom-forecast {
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(145deg, #ffffff, #f0f8ff);
+  border: 1px solid #0077cc;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 119, 204, 0.1);
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* ───────────────────────────── */
+/* HLAVNÍ NADPIS */
+/* ───────────────────────────── */
+
+.custom-forecast h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #0077cc;
+  margin-bottom: 2rem;
+  letter-spacing: -0.3px;
+}
+
+/* ───────────────────────────── */
+/* FORMULÁŘ: INPUT + TLAČÍTKO */
+/* ───────────────────────────── */
+
+.custom-forecast form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.custom-forecast input {
+  padding: 0.6rem;
+  width: 70%;
+  border: 1px solid #cce6ff;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.custom-forecast button {
+  padding: 0.6rem 1rem;
+  background: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s ease;
+}
+
+.custom-forecast button:hover {
+  background: #005fa8;
+}
+
+/* ───────────────────────────── */
+/* VÝSLEDKY PŘEDPOVĚDI */
+/* ───────────────────────────── */
+
+.forecast-results {
+  margin-top: 1rem;
+}
+
+/* ───────────────────────────── */
+/* BLOK JEDNOHO DNE */
+/* ───────────────────────────── */
+
+.forecast-day {
+  position: relative;
+  margin-bottom: 1rem;
+  background: linear-gradient(145deg, #ffffff, #f0f8ff);
+  border: 1px solid #0077cc;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 119, 204, 0.1);
+  padding: 1rem;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+/* ───────────────────────────── */
+/* MODRÁ BUBLINA VÍKEND */
+/* ───────────────────────────── */
+
+.weekend-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: #007aff;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.2);
+  pointer-events: none;
+}
+
+/* ───────────────────────────── */
+/* NADPIS DNE */
+/* ───────────────────────────── */
+
+.forecast-day h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0077cc;
+  margin-bottom: 0.5rem;
+}
+
+/* ───────────────────────────── */
+/* TEXT V DNU */
+/* ───────────────────────────── */
+
+.forecast-day p {
+  font-size: 1rem;
+  color: #333;
+  margin: 0.3rem 0;
+}
+
+/* ───────────────────────────── */
+/* CHYBOVÁ HLÁŠKA */
+/* ───────────────────────────── */
+
+.error {
+  color: #cc0000;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+/* ───────────────────────────── */
+/* STYL PRO STATUS EMOTIKONU */
+/* ───────────────────────────── */
+
+.forecast-day .status {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}

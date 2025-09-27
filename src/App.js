@@ -9,6 +9,7 @@ import InfoPage from "./pages/InfoPage"
 
 import Error from "./pages/Error"
 import SharedLayout from "./pages/SharedLayout"
+import CustomLocationForecast from "./pages/CustomLocationForecast"
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
             <Route path="/tomorrow" element={<Tomorrow />} />
             <Route path="/shorttermforecast" element={<ShortTermForecast />} />
             <Route path="/longtermforecast" element={<LongTermForecast />} />
+            <Route path="/customlocationforecast" element={<CustomLocationForecast />} />
             <Route path="/infopage" element={<InfoPage />} />
             <Route path="*" element={<Error />} />
           </Route>

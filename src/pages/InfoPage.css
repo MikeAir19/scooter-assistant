@@ -1,109 +1,85 @@
-/* ───────────────────────────── */
-/* OBECNÉ NASTAVENÍ STRÁNKY */
-/* ───────────────────────────── */
-
 .info-page {
-  background: linear-gradient(145deg, #ffffff, #f0f8ff);
+  max-width: 640px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #f0f8ff;
   border: 1px solid #0077cc;
   border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 119, 204, 0.1);
-  padding: 2rem;
-  margin: 2rem auto;
-  max-width: 480px;
+  box-shadow: 0 6px 18px rgba(0, 119, 204, 0.08);
   font-family: 'Poppins', sans-serif;
   text-align: center;
-  color: #0077cc;
-  box-sizing: border-box;
 }
-
-/* ─────────────────── */
-/* OBSAHOVÉ PRVKY */
-/* ─────────────────── */
 
 .info-title {
   font-size: 1.6rem;
   font-weight: 600;
-  margin-bottom: 1rem;
-  letter-spacing: -0.3px;
+  color: #0077cc;
+  margin-bottom: 0.5rem;
 }
 
 .info-subtext {
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: #444;
-  margin: 0 auto 1.2rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
 }
-
-/* ─────────────────── */
-/* BLOKY OTÁZEK */
-/* ─────────────────── */
 
 .info-block {
-  background-color: #f8fbff;
-  border: 1px solid #cce6ff;
-  border-radius: 12px;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 119, 204, 0.05);
+  margin-bottom: 1.5rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-align: left;
-}
-
-.info-block:hover {
-  background-color: #eaf4ff;
 }
 
 .info-question {
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: 600;
   color: #0077cc;
-  margin: 0;
+  margin-bottom: 0.5rem;
 }
 
 .info-answer {
+  background: white;
+  border: 1px solid #cce6ff;
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 119, 204, 0.05);
+  text-align: left;
   font-size: 1rem;
-  font-weight: 400;
   color: #333;
-  margin-top: 0.6rem;
-  line-height: 1.5;
-  animation: fadeIn 0.3s ease-out;
 }
 
-/* ───────────────── */
-/* ANIMACE */
-/* ───────────────── */
+/* ───────────────────────────── */
+/* ZÁLOŽKY UVNITŘ „Jak se používá“ */
+/* ───────────────────────────── */
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-4px); }
-  to { opacity: 1; transform: translateY(0); }
+.usage-tabs {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-/* ───────────────── */
-/* MOBILNÍ VERZE */
-/* ───────────────── */
+.usage-tab {
+  background: #e6f2ff;
+  border: 1px solid #cce6ff;
+  border-radius: 12px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  color: #0077cc;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
 
-@media (max-width: 600px) {
-  .info-page {
-    padding: 1.2rem;
-    margin: 1rem;
-    max-width: 100%;
-  }
+.usage-tab:hover {
+  background: #d4eaff;
+  transform: scale(1.03);
+}
 
-  .info-title {
-    font-size: 1.4rem;
-  }
+.usage-tab.active {
+  background: #0077cc;
+  color: white;
+  font-weight: 600;
+}
 
-  .info-subtext {
-    font-size: 1.05rem;
-  }
-
-  .info-question {
-    font-size: 1rem;
-  }
-
-  .info-answer {
-    font-size: 0.95rem;
-  }
+.usage-content {
+  margin-top: 0.5rem;
 }

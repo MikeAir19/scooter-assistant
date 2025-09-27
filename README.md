@@ -1,70 +1,99 @@
-# Getting Started with Create React App
+# Scooter Assistant
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplikace pro sledování počasí s ohledem na jízdu na koloběžce. Aplikace poskytuje detailní předpověď počasí, doporučení oblečení a status jízdy na koloběžce pro různé časové období.
 
-## Available Scripts
+## Zadání projektu
 
-In the project directory, you can run:
+*Tato sekce bude vyplněna později*
 
-### `npm start`
+## Myšlenkový proces
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Aplikace byla navržena s ohledem na praktické potřeby uživatelů, kteří se rozhodují, zda vyrazit na koloběžce. Klíčové principy:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Jednoduchost rozhodování**: Aplikace poskytuje jasné vizuální indikátory (✅, 🌧️, 🥶) pro rychlé posouzení vhodnosti jízdy
+- **Časové rozlišení**: Rozdělení na ráno a odpoledne umožňuje plánovat jízdu podle konkrétních časů
+- **Praktické doporučení**: Widget oblečení poskytuje konkrétní rady na základě teploty a větru
+- **Dlouhodobé plánování**: 7denní a 14denní předpovědi umožňují plánovat dopředu
+- **Lokální kontext**: Aplikace je optimalizována pro české prostředí (Brno) s českými názvy a formátováním
 
-### `npm test`
+## Jak spustit
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Předpoklady
+- Node.js (verze 14 nebo vyšší)
+- npm nebo yarn
 
-### `npm run build`
+### Instalace
+```bash
+# Klonování repozitáře
+git clone <repository-url>
+cd scooter-assistant
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Instalace závislostí
+npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Spuštění vývojového serveru
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Aplikace bude dostupná na `http://localhost:3000`
 
-### `npm run eject`
+### Build pro produkci
+```bash
+npm run build
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Funkce
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Hlavní stránky
+- **Dnes** - Aktuální počasí s doporučením pro jízdu na koloběžce
+- **Zítra** - Detailní předpověď pro zítřejší den
+- **Krátkodobá předpověď** - 7denní výhled s interaktivním sliderem
+- **Dlouhodobá předpověď** - 14denní výhled s gridovým zobrazením
+- **Informace** - O aplikaci a funkcích
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Klíčové komponenty
+- **Status indikátory**: ✅ (vhodné), 🌧️ (déšť), 🥶 (zima)
+- **ClothesWidget**: Inteligentní doporučení oblečení na základě teploty a větru
+- **ShortWidget**: Kompaktní zobrazení denní předpovědi
+- **LongWidget**: Zjednodušené zobrazení pro dlouhodobou předpověď
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Funkce aplikace
+- **Real-time počasí**: Aktuální teplota, oblačnost, vlhkost
+- **Časové rozlišení**: Ranní (8:00) a odpolední (17:00) předpovědi
+- **Doporučení oblečení**: Dynamické doporučení na základě teploty a větru
+- **Interaktivní navigace**: Slider pro procházení dnů
+- **Responsive design**: Optimalizováno pro mobilní i desktop zařízení
+- **Česká lokalizace**: Všechny texty a formátování v češtině
 
-## Learn More
+## Balíčky
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Hlavní závislosti
+- **react** (^19.1.1) - React framework
+- **react-dom** (^19.1.1) - React DOM rendering
+- **react-router-dom** (^6.30.1) - Routing pro SPA
+- **axios** (^1.12.2) - HTTP klient pro API volání
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Vývojové závislosti
+- **react-scripts** (5.0.1) - Create React App build tools
+- **@testing-library/react** (^16.3.0) - Testing utilities
+- **@testing-library/jest-dom** (^6.8.0) - Jest DOM matchers
+- **@testing-library/user-event** (^13.5.0) - User interaction testing
+- **web-vitals** (^2.1.4) - Web performance metrics
 
-### Code Splitting
+### API
+- **Open-Meteo API** - Bezplatné počasí API
+  - Souřadnice: Brno (49.1952, 16.608)
+  - Timezone: Europe/Prague
+  - Předpověď: 14 dní dopředu
+  - Data: teplota, srážky, vítr, oblačnost, vlhkost, sněžení
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Struktura projektu
+```
+src/
+├── api/           # API služby
+├── components/    # Znovupoužitelné komponenty
+├── context/       # React Context pro state management
+├── pages/         # Hlavní stránky aplikace
+├── img/           # Obrázky a ikony
+└── App.js         # Hlavní komponenta
+```

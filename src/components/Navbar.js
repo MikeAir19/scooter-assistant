@@ -13,6 +13,7 @@ const Navbar = () => {
     if (location.pathname === "/tomorrow") return "Zítra"
     if (location.pathname === "/shorttermforecast") return "Týdenní předpověď"
     if (location.pathname === "/longtermforecast") return "Dlouhodobá předpověď"
+    if (location.pathname === "/customlocationforecast") return "Vyhledej město"
     if (location.pathname === "/infopage") return "Informace"
     return ""
   }
@@ -34,6 +35,7 @@ const Navbar = () => {
           <NavLink to="/tomorrow" onClick={() => setMenuOpen(false)}>Zítra</NavLink>
           <NavLink to="/shorttermforecast" onClick={() => setMenuOpen(false)}>Týdenní předpověď</NavLink>
           <NavLink to="/longtermforecast" onClick={() => setMenuOpen(false)}>Dlouhodobá předpověď</NavLink>
+          <NavLink to="/customlocationforecast" onClick={() => setMenuOpen(false)}>Vyhledej město</NavLink>
           <NavLink to="/infopage" onClick={() => setMenuOpen(false)}>Informace</NavLink>
         </nav>
       </header>
