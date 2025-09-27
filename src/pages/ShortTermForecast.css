@@ -256,6 +256,6 @@
 
 .slider-arrow:focus,
 .dot:focus {
-  outline: 3px solid rgba(0, 119, 204, 0.14);
-  outline-offset: 2px;
+  outline: none;
 }
+
