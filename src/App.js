@@ -6,6 +6,7 @@ import Tomorrow from "./pages/Tomorrow"
 import ShortTermForecast from "./pages/ShortTermForecast"
 import LongTermForecast from "./pages/LongTermForecast"
 import InfoPage from "./pages/InfoPage"
+import CursePage from "./pages/CursePage"
 
 import Error from "./pages/Error"
 import SharedLayout from "./pages/SharedLayout"
@@ -24,6 +25,7 @@ const App = () => {
             <Route path="/longtermforecast" element={<LongTermForecast />} />
             <Route path="/customlocationforecast" element={<CustomLocationForecast />} />
             <Route path="/infopage" element={<InfoPage />} />
+            <Route path="/cursepage" element={<CursePage />} />
             <Route path="*" element={<Error />} />
           </Route>
         </Routes>
