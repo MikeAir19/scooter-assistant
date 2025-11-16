@@ -11,18 +11,18 @@ const LongWidget = ({ date, hourly, className = "" }) => {
   const isWeekend = [0, 6].includes(jsDate.getDay())
 
   const fullDayStatus = getStatusIcon(
-    hasRain(hourly, 5, 24),
-    hasCold(hourly, 5, 24)
+    hasCondition(hourly, 5, 24, h => h.rain),
+    hasCondition(hourly, 5, 24, h => h.temp < 10)
   )
 
   const morningStatus = getStatusIcon(
-    hasRain(hourly, 5, 9),
-    hasCold(hourly, 7, 9)
+    hasCondition(hourly, 5, 9, h => h.rain),
+    hasCondition(hourly, 7, 9, h => h.temp < 10)
   )
 
   const afternoonStatus = getStatusIcon(
-    hasRain(hourly, 15, 18),
-    hasCold(hourly, 17, 18)
+    hasCondition(hourly, 15, 18, h => h.rain),
+    hasCondition(hourly, 17, 18, h => h.temp < 10)
   )
 
   const widgetClass = `long-widget ${isWeekend ? "weekend" : ""} ${className}`
@@ -54,12 +54,8 @@ const LongWidget = ({ date, hourly, className = "" }) => {
   )
 }
 
-function hasRain(hourly, from, to) {
-  return hourly.some(h => h.hour >= from && h.hour < to && h.rain)
-}
-
-function hasCold(hourly, from, to) {
-  return hourly.some(h => h.hour >= from && h.hour < to && h.temp < 10)
+function hasCondition(hourly, from, to, predicate) {
+  return hourly.some(h => h.hour >= from && h.hour < to && predicate(h))
 }
 
 function getStatusIcon(rain, cold) {
